@@ -1,0 +1,132 @@
+# Task 4: Firewall Setup with UFW
+
+## Steps:
+1. Installed and enabled UFW.
+2. Allowed SSH (port 22).
+3. Blocked Telnet (port 23).
+4. Tested the block rule using telnet.
+5. Removed the block rule.
+
+
+## Commands Used:
+
+sudo ufw status verbose(ufw status verbose = show firewall rules + detailed firewall settings
+is used in Linux to check the status of UFW (Uncomplicated Firewall) with detailed information.
+)
+
+sudo ufw enable(
+sudo → run as administrator
+ufw → Uncomplicated Firewall
+enable → turn the firewall ON
+
+Turn on the UFW firewall with admin privileges.
+)
+
+sudo ufw disable(
+sudo → run as administrator
+ufw → Uncomplicated Firewall
+disable → turn the firewall OFF
+
+Turn off (deactivate) the UFW firewall using admin privileges.
+)
+
+sudo ufw allow ssh(
+sudo → run as administrator
+ufw → Uncomplicated Firewall
+allow → permit traffic
+ssh → the SSH service (usually port 22)
+
+Allow incoming SSH connections through the firewall.
+)
+
+sudo ufw deny 23/tcp(
+sudo → run as administrator
+ufw → Uncomplicated Firewall
+deny → block/deny traffic
+23/tcp → port 23 using the TCP protocol (Telnet port)
+
+Block incoming Telnet connections on port 23 over TCP.
+)
+
+sudo ufw status numbered(
+sudo → run as administrator
+ufw → Uncomplicated Firewall
+status numbered → show the firewall rules with rule numbers
+
+Display all UFW firewall rules in a numbered list, so you can easily delete specific rules.
+)
+
+sudo ufw delete [rule-number](
+sudo → run as administrator
+ufw → firewall
+delete → remove a rule
+[rule-number] → number of the rule from status numbered
+
+Delete the firewall rule that matches the given number.
+)
+
+sudo ufw delete deny 23/tcp(
+sudo → run as administrator
+ufw → Uncomplicated Firewall
+delete → remove a rule
+deny 23/tcp → the specific rule that blocks port 23 (Telnet) over TCP
+
+Remove the firewall rule that was blocking TCP port 23.
+)
+
+sudo apt install telnet(
+sudo → run as administrator
+apt → package manager for Debian/Ubuntu
+install → install a package
+telnet → the Telnet client program
+
+Install the Telnet client on your Linux system.
+)
+
+telnet localhost 23(
+telnet → run the Telnet client
+localhost → connect to your own computer (127.0.0.1)
+23 → port number 23 (Telnet service port)
+
+Try to connect to the Telnet service on your own machine at port 23.
+)
+
+nc -zv localhost 23(
+nc → Netcat (network tool)
+-z → scan mode (do not send data, just check if port is open)
+-v → verbose output (show details)
+localhost → your own computer
+23 → port number 23 (Telnet port)
+
+Check if port 23 on your local machine is open, using Netcat with detailed output.
+)
+
+sudo ufw status numbered > ufw_rules.txt(
+sudo → run as administrator
+ufw → firewall tool
+status numbered → show all firewall rules with numbers
+> → redirect output to a file
+ufw_rules.txt → the file where the output will be saved
+
+Save the numbered UFW firewall rules into a file called ufw_rules.txt instead of showing them on the screen.
+)
+
+sudo ufw status numbered(
+sudo → run as administrator
+ufw → Uncomplicated Firewall
+status numbered → display firewall rules with rule numbers
+
+Show all UFW rules in a numbered list so you can refer to them easily (especially for deleting).
+)
+
+sudo ufw reset(
+sudo → run as administrator
+ufw → Uncomplicated Firewall
+reset → restore UFW to its default settings
+
+Completely reset the firewall: delete all rules, disable UFW, and return everything to default.
+)
+
+
+
+
